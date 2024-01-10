@@ -44,4 +44,50 @@
 
 
     
-  
+const cats = [
+  {
+      name: "Category 1",
+      children: [
+          {
+              name: "Category 1.1",
+              children: null
+          },
+          {
+              name: "Category 1.2",
+              children: [
+                  {
+                      name: "Category 1.2.1",
+                      children: null
+                  },
+                  {
+                      name: "Category 1.2.2",
+                      children: null
+                  }
+              ]
+          }
+      ]
+  },
+  {
+      name: "Category 2",
+      children: [
+          {
+              name: "Category 2.1",
+              children: [
+                  {
+                      name: "Category 2.1.1",
+                      children: null
+                  }
+              ]
+          }
+      ]
+  }
+]
+
+function printCategories(cats, indentation = 0) {
+  for (const cats of cats) {
+    console.log(' '.repeat(indentation) + cats.name);
+    if (cats.subchildren.length > 0) {
+      printCategories(cats.subchildren, indentation + 2);
+    }
+  }
+}
